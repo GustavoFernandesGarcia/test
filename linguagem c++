@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<conio.h>
+    main (void)
+{
+	float v,s;
+	
+	printf("\ndigite o seu valor:");
+	scanf("%i",v);
+	
+	if (v>1600 || v<4500)
+	s=v*0,2;
+	{
+	prinft("\no valor do salário é de:%i",s);
+    }
+    else 
+	if (v>4500)
+    	s=v*0,275;
+    {
+    	printf("\no valor do salário é de:%i",s);
+	}
+	else 
+	if (v<1600)
+	{
+	    printf("\no valor do salário é de:%i",s);
+	}
+	getche();
+}
