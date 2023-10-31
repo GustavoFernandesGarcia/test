@@ -74,12 +74,19 @@ for num in range(1, 101):
 #ativdade5AeB
 
 def inverter_letras(frase):
+    
     palavras = frase.split()
+    
     palavras_invertidas = []
+    
     for palavra in palavras:
+    
         palavra_invertida = palavra[::-1]
+        
         palavras_invertidas.append(palavra_invertida)
+   
     frase_invertida = ' '.join(palavras_invertidas)
+   
     return frase_invertida
 frase_original = "Esta é uma frase de exemplo"
 frase_invertida = inverter_letras(frase_original)
