@@ -1,0 +1,55 @@
+#criando_uma_interface_gráfica
+
+import wx
+
+class MinhaJanela(wx.Frame):
+    def __init__(self, parent, title):
+        super(MinhaJanela, self).__init__(parent, title=title, size=(400, 250))
+        self.panel = wx.Panel(self)
+
+        # Crie campos de texto para o nome do paciente, endereço, altura e peso
+        self.nome_label = wx.StaticText(self.panel, label="Nome do Paciente:")
+        self.nome_textctrl = wx.TextCtrl(self.panel)
+
+        self.endereco_label = wx.StaticText(self.panel, label="Endereço Completo:")
+        self.endereco_textctrl = wx.TextCtrl(self.panel, style=wx.TE_MULTILINE)
+
+        self.altura_label = wx.StaticText(self.panel, label="Altura (cm):")
+        self.altura_textctrl = wx.TextCtrl(self.panel)
+
+        self.peso_label = wx.StaticText(self.panel, label="Peso (kg):")
+        self.peso_textctrl = wx.TextCtrl(self.panel)
+
+        # Crie um botão para salvar as informações
+        self.salvar_button = wx.Button(self.panel, label="Salvar")
+
+        # Configure o layout da interface
+        sizer = wx.BoxSizer(wx.VERTICAL)
+        sizer.Add(self.nome_label, 0, wx.ALL, 5)
+        sizer.Add(self.nome_textctrl, 0, wx.EXPAND | wx.ALL, 5)
+        sizer.Add(self.endereco_label, 0, wx.ALL, 5)
+        sizer.Add(self.endereco_textctrl, 1, wx.EXPAND | wx.ALL, 5)
+        sizer.Add(self.altura_label, 0, wx.ALL, 5)
+        sizer.Add(self.altura_textctrl, 0, wx.EXPAND | wx.ALL, 5)
+        sizer.Add(self.peso_label, 0, wx.ALL, 5)
+        sizer.Add(self.peso_textctrl, 0, wx.EXPAND | wx.ALL, 5)
+        sizer.Add(self.salvar_button, 0, wx.ALIGN_CENTER | wx.ALL, 5)
+
+        self.panel.SetSizer(sizer)
+
+        # Conecte o evento de clique do botão "Salvar" a uma função
+        self.salvar_button.Bind(wx.EVT_BUTTON, self.on_salvar)
+
+    def on_salvar(self, event):
+        nome_paciente = self.nome_textctrl.GetValue()
+        endereco_completo = self.endereco_textctrl.GetValue()
+        altura = self.altura_textctrl.GetValue()
+        peso = self.peso_textctrl.GetValue()
+
+        # Aqui você pode adicionar código para salvar os dados em algum lugar
+        # Certifique-se de validar e converter altura e peso para números antes de usar
+
+app = wx.App()
+frame = MinhaJanela(None, "Cadastro de Paciente")
+frame.Show()
+app.MainLoop()
