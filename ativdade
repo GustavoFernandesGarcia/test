@@ -7,7 +7,6 @@ class MinhaJanela(wx.Frame):
         super(MinhaJanela, self).__init__(parent, title=title, size=(400, 250))
         self.panel = wx.Panel(self)
 
-        # Crie campos de texto para o nome do paciente, endereço, altura e peso
         self.nome_label = wx.StaticText(self.panel, label="Nome do Paciente:")
         self.nome_textctrl = wx.TextCtrl(self.panel)
 
@@ -20,10 +19,9 @@ class MinhaJanela(wx.Frame):
         self.peso_label = wx.StaticText(self.panel, label="Peso (kg):")
         self.peso_textctrl = wx.TextCtrl(self.panel)
 
-        # Crie um botão para salvar as informações
         self.salvar_button = wx.Button(self.panel, label="Salvar")
 
-        # Configure o layout da interface
+    
         sizer = wx.BoxSizer(wx.VERTICAL)
         sizer.Add(self.nome_label, 0, wx.ALL, 5)
         sizer.Add(self.nome_textctrl, 0, wx.EXPAND | wx.ALL, 5)
@@ -37,7 +35,6 @@ class MinhaJanela(wx.Frame):
 
         self.panel.SetSizer(sizer)
 
-        # Conecte o evento de clique do botão "Salvar" a uma função
         self.salvar_button.Bind(wx.EVT_BUTTON, self.on_salvar)
 
     def on_salvar(self, event):
@@ -46,8 +43,6 @@ class MinhaJanela(wx.Frame):
         altura = self.altura_textctrl.GetValue()
         peso = self.peso_textctrl.GetValue()
 
-        # Aqui você pode adicionar código para salvar os dados em algum lugar
-        # Certifique-se de validar e converter altura e peso para números antes de usar
 
 app = wx.App()
 frame = MinhaJanela(None, "Cadastro de Paciente")
